@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -33,8 +34,35 @@ namespace Full_Nitro_Client
             //this.Text = chromeBrowser.Address + " - Full Nitro Client";
 
             chromeBrowser.AddressChanged += ChromeBrowser_AddressChanged;
+            chromeBrowser.FrameLoadEnd += ChromeBrowser_FrameLoadEnd;
         }
 
+        private void ChromeBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\jQuery.js"));
+
+            // If the Enable Gold Membership file exists.
+            if (File.Exists(cacheDirBase + "\\EnableGoldMembership.dat"))
+            {
+                // If the URL is the garage or racing.
+                if (chromeBrowser.Address.Contains("nitrotype.com/garage")
+                 || chromeBrowser.Address.Contains("nitrotype.com/race"))
+                {
+                    // Write a line to the console saying it is executing.
+                    Console.WriteLine("Executing Membership.js Script!");
+                    // Execute the give gold membership script.
+                    chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Membership.js"));
+                }
+            }
+
+            if (chromeBrowser.Address.Contains("nitrotype.com/race"))
+            {
+                // Write a line to the console saying it is executing.
+                Console.WriteLine("Executing Bot.js Script!");
+                // Execute the give gold membership script.
+                chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Bot.js"));
+            }
+        }
 
         private void ChromeBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
         {
@@ -87,19 +115,7 @@ namespace Full_Nitro_Client
         // Inefficent.
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // If the Enable Gold Membership file exists.
-            if (File.Exists(cacheDirBase + "\\EnableGoldMembership.dat"))
-            {
-                // If the URL is the garage or racing.
-                if (chromeBrowser.Address.Contains("nitrotype.com/garage")
-                 || chromeBrowser.Address.Contains("nitrotype.com/race") )
-                {
-                    // Write a line to the console saying it is executing.
-                    Console.WriteLine("Executing Membership.js Script!");
-                    // Execute the give gold membership script.
-                    chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Membership.js"));
-                }
-            }
+            
         }
 
         private void HandleRestart()
@@ -237,6 +253,16 @@ namespace Full_Nitro_Client
             about.ShowDialog();
             // Write a line to the console saying it was opened.
             Console.WriteLine("Opened the about form!");
+        }
+
+        private void activateBotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(cacheDirBase + "\\NitroTyper.exe");
+        }
+
+        private void openDevToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chromeBrowser.ShowDevTools();
         }
     }
 }

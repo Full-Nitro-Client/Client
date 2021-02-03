@@ -44,6 +44,8 @@ namespace Full_Nitro_Client
             this.additionalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dANGERResetEverythingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateBotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -123,7 +125,7 @@ namespace Full_Nitro_Client
             this.additionalToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(172, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(292, 24);
             this.menuStrip2.TabIndex = 0;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -154,6 +156,8 @@ namespace Full_Nitro_Client
             // 
             this.additionalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dANGERResetEverythingToolStripMenuItem,
+            this.activateBotToolStripMenuItem,
+            this.openDevToolsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.additionalToolStripMenuItem.Name = "additionalToolStripMenuItem";
             this.additionalToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
@@ -172,6 +176,20 @@ namespace Full_Nitro_Client
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.aboutToolStripMenuItem.Text = "About Full Nitro Client";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // activateBotToolStripMenuItem
+            // 
+            this.activateBotToolStripMenuItem.Name = "activateBotToolStripMenuItem";
+            this.activateBotToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.activateBotToolStripMenuItem.Text = "Activate Bot";
+            this.activateBotToolStripMenuItem.Click += new System.EventHandler(this.activateBotToolStripMenuItem_Click);
+            // 
+            // openDevToolsToolStripMenuItem
+            // 
+            this.openDevToolsToolStripMenuItem.Name = "openDevToolsToolStripMenuItem";
+            this.openDevToolsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.openDevToolsToolStripMenuItem.Text = "Open Dev Tools";
+            this.openDevToolsToolStripMenuItem.Click += new System.EventHandler(this.openDevToolsToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -222,6 +240,8 @@ namespace Full_Nitro_Client
         private System.Windows.Forms.ToolStripMenuItem giveYourselfGoldMembershipToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dANGERResetEverythingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activateBotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openDevToolsToolStripMenuItem;
     }
 }
 
