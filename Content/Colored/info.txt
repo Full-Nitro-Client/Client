@@ -1,0 +1,18 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Arimo-Regular
+font link: https://fonts.google.com/specimen/Arimo
+font author: Steve Matteson
+font author site: https://twitter.com/@SteveMatteson1
+
+
+icon designer: Melvin Salas
+icon designer link: /msalas10
+        
+
+fontColor: {"gradient-0":"#FF9393","gradient-1":"#FF7474"}
+bgColor: {"hex":"#000000"}
+iconColor: {"gradient-0":"#FF9393","gradient-1":"#FF7474"}
+
+      
