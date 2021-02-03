@@ -26,13 +26,13 @@ Find the zip file, right-click it and press "Extract All" (built-in)<br>
 - A copy of Visual Studio 2019 or newer
 - A windows 10 or later computer
 - A zip extractor (7-zip or winrar)
-- A copy of the EzCar source code
+- A copy of the Client source code
 - .Net Framework 4.0
 - Windows Forms (C#)
 
 **_Steps:_**
 1. Download Client Source Code<br>
-To download the Client Source Code, just navigate to "https://github.com/Full-Nitro-Client/archive/main.zip".<br>
+To download the Client Source Code, just navigate to "https://github.com/Full-Nitro-Client/Client/archive/main.zip".<br>
 <br>
 2. Extract Client Source Code Zip<br>
 Find the "Client-main.zip" file, right-click it and press "Extract All" (built-in)<br>
