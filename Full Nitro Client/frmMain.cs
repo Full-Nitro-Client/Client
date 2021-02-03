@@ -12,10 +12,11 @@ using System.Windows.Forms;
 // Using for all of the browser stuff.
 using CefSharp;
 using CefSharp.WinForms;
+using RED7Studios.UI.Forms;
 
 namespace Full_Nitro_Client
 {
-    public partial class frmMain : Form
+    public partial class frmMain : ModernForm
     {
         // Create a public ChromiumWebBrowser called 'chromeBrowser'.
         public ChromiumWebBrowser chromeBrowser;
