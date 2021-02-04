@@ -1,7 +1,7 @@
 ﻿
 namespace Full_Nitro_Client
 {
-    partial class AboutForm
+    partial class frmAbout
     {
         /// <summary>
         /// Required designer variable.
@@ -78,7 +78,7 @@ namespace Full_Nitro_Client
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(57, 19);
             this.lbVer.TabIndex = 3;
-            this.lbVer.Text = "v1.0.0.0";
+            this.lbVer.Text = "v1.0.0.1";
             // 
             // lbDescription
             // 
@@ -112,9 +112,12 @@ namespace Full_Nitro_Client
             // 
             // rtbDescription
             // 
+            this.rtbDescription.BackColor = System.Drawing.Color.White;
+            this.rtbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rtbDescription.Location = new System.Drawing.Point(13, 122);
             this.rtbDescription.Name = "rtbDescription";
+            this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(220, 96);
             this.rtbDescription.TabIndex = 7;
             this.rtbDescription.Text = "Full Nitro Client is a client built for the website NitroType which is owned by t" +
@@ -130,10 +133,11 @@ namespace Full_Nitro_Client
             this.metroLabel1.TabIndex = 8;
             this.metroLabel1.Text = "NitroType is owned by teaching.com";
             // 
-            // AboutForm
+            // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(241, 251);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.rtbDescription);
@@ -146,7 +150,7 @@ namespace Full_Nitro_Client
             this.Controls.Add(this.lbProductName);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AboutForm";
+            this.Name = "frmAbout";
             this.ShowIcon = false;
             this.Text = "About";
             this.Load += new System.EventHandler(this.AboutForm_Load);

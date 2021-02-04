@@ -1,0 +1,11 @@
+﻿Notices:
+- All of the code is subject to change, if NitroType wants me to change something, I will.
+- All code isn't just mine, I have tried to add the credits at the top of the files now.
+- Don't criticize me on the code, because I am still just a beginner and only had 1 year of learning.
+
+- Report issues here: https://github.com/Full-Nitro-Client/Client/issues
+- All of the code is here: https://github.com/Full-Nitro-Client/Client
+
+Contact:
+GitHub - https://github.com/Creaous
+Email - mailto:mitchelld@redsevenstudios.com

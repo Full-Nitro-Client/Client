@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Full_Nitro_Client
 {
-    public partial class AboutForm : Form
+    public partial class frmAbout : Form
     {
-        public AboutForm()
+        public frmAbout()
         {
             InitializeComponent();
         }

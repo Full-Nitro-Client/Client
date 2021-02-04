@@ -29,139 +29,114 @@ namespace Full_Nitro_Client
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.visualTweaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.give1MillionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setMembershipToGoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modernButton1 = new RED7Studios.UI.Controls.ModernButton();
-            this.timerScripts = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.navbar = new System.Windows.Forms.MenuStrip();
             this.visualTweaksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.giveYourselfMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.giveYourselfGoldMembershipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.giveYourselfOneMillionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.giveYourselfMembershipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.secretModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.additionalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dANGERResetEverythingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activateBotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tlpMain.SuspendLayout();
+            this.navbar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // tlpMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visualTweaksToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
+            this.tlpMain.AutoSize = true;
+            this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpMain.ColumnCount = 1;
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.Controls.Add(this.navbar, 0, 0);
+            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMain.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tlpMain.Location = new System.Drawing.Point(1, 33);
+            this.tlpMain.Name = "tlpMain";
+            this.tlpMain.RowCount = 2;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.Size = new System.Drawing.Size(1140, 504);
+            this.tlpMain.TabIndex = 2;
             // 
-            // visualTweaksToolStripMenuItem
+            // navbar
             // 
-            this.visualTweaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.give1MillionToolStripMenuItem,
-            this.setMembershipToGoldToolStripMenuItem});
-            this.visualTweaksToolStripMenuItem.Name = "visualTweaksToolStripMenuItem";
-            this.visualTweaksToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.visualTweaksToolStripMenuItem.Text = "Visual Tweaks";
-            // 
-            // give1MillionToolStripMenuItem
-            // 
-            this.give1MillionToolStripMenuItem.Name = "give1MillionToolStripMenuItem";
-            this.give1MillionToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.give1MillionToolStripMenuItem.Text = "Give 1 millon to player";
-            // 
-            // setMembershipToGoldToolStripMenuItem
-            // 
-            this.setMembershipToGoldToolStripMenuItem.Name = "setMembershipToGoldToolStripMenuItem";
-            this.setMembershipToGoldToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.setMembershipToGoldToolStripMenuItem.Text = "Set Membership to Gold";
-            // 
-            // modernButton1
-            // 
-            this.modernButton1.CustomColorScheme = false;
-            this.modernButton1.Location = new System.Drawing.Point(46, 388);
-            this.modernButton1.Name = "modernButton1";
-            this.modernButton1.Size = new System.Drawing.Size(75, 23);
-            this.modernButton1.TabIndex = 1;
-            this.modernButton1.Text = "modernButton1";
-            this.modernButton1.UseVisualStyleBackColor = true;
-            this.modernButton1.Click += new System.EventHandler(this.modernButton1_Click);
-            // 
-            // timerScripts
-            // 
-            this.timerScripts.Enabled = true;
-            this.timerScripts.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.menuStrip2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 33);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1140, 504);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.navbar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.navbar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.navbar.Dock = System.Windows.Forms.DockStyle.None;
+            this.navbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visualTweaksToolStripMenuItem1,
             this.additionalToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(292, 24);
-            this.menuStrip2.TabIndex = 0;
-            this.menuStrip2.Text = "menuStrip2";
+            this.navbar.Location = new System.Drawing.Point(517, 0);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(106, 24);
+            this.navbar.TabIndex = 0;
+            this.navbar.Text = "menuStrip2";
             // 
             // visualTweaksToolStripMenuItem1
             // 
             this.visualTweaksToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.giveYourselfMoneyToolStripMenuItem,
-            this.giveYourselfGoldMembershipToolStripMenuItem});
+            this.toolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.toolStripSeparator2,
+            this.secretModeToolStripMenuItem});
             this.visualTweaksToolStripMenuItem1.Name = "visualTweaksToolStripMenuItem1";
-            this.visualTweaksToolStripMenuItem1.Size = new System.Drawing.Size(90, 20);
-            this.visualTweaksToolStripMenuItem1.Text = "Visual Tweaks";
+            this.visualTweaksToolStripMenuItem1.Size = new System.Drawing.Size(54, 20);
+            this.visualTweaksToolStripMenuItem1.Text = "Scripts";
             // 
-            // giveYourselfMoneyToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.giveYourselfMoneyToolStripMenuItem.Name = "giveYourselfMoneyToolStripMenuItem";
-            this.giveYourselfMoneyToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.giveYourselfMoneyToolStripMenuItem.Text = "Give Yourself One Million";
-            this.giveYourselfMoneyToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfMoneyToolStripMenuItem_Click);
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.giveYourselfOneMillionToolStripMenuItem,
+            this.giveYourselfMembershipToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Visual Tweaks";
             // 
-            // giveYourselfGoldMembershipToolStripMenuItem
+            // giveYourselfOneMillionToolStripMenuItem
             // 
-            this.giveYourselfGoldMembershipToolStripMenuItem.Name = "giveYourselfGoldMembershipToolStripMenuItem";
-            this.giveYourselfGoldMembershipToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.giveYourselfGoldMembershipToolStripMenuItem.Text = "Give Yourself Membership";
-            this.giveYourselfGoldMembershipToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfGoldMembershipToolStripMenuItem_Click);
+            this.giveYourselfOneMillionToolStripMenuItem.Name = "giveYourselfOneMillionToolStripMenuItem";
+            this.giveYourselfOneMillionToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.giveYourselfOneMillionToolStripMenuItem.Text = "Give Yourself One Million";
+            this.giveYourselfOneMillionToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfOneMillionToolStripMenuItem_Click);
+            // 
+            // giveYourselfMembershipToolStripMenuItem
+            // 
+            this.giveYourselfMembershipToolStripMenuItem.Name = "giveYourselfMembershipToolStripMenuItem";
+            this.giveYourselfMembershipToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.giveYourselfMembershipToolStripMenuItem.Text = "Give Yourself Membership";
+            this.giveYourselfMembershipToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfMembershipToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // secretModeToolStripMenuItem
+            // 
+            this.secretModeToolStripMenuItem.Name = "secretModeToolStripMenuItem";
+            this.secretModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.secretModeToolStripMenuItem.Text = "Secret Mode";
+            this.secretModeToolStripMenuItem.Click += new System.EventHandler(this.secretModeToolStripMenuItem_Click);
             // 
             // additionalToolStripMenuItem
             // 
             this.additionalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dANGERResetEverythingToolStripMenuItem,
-            this.activateBotToolStripMenuItem,
             this.openDevToolsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.additionalToolStripMenuItem.Name = "additionalToolStripMenuItem";
-            this.additionalToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.additionalToolStripMenuItem.Text = "Additional";
+            this.additionalToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.additionalToolStripMenuItem.Text = "Help";
             // 
             // dANGERResetEverythingToolStripMenuItem
             // 
@@ -170,26 +145,19 @@ namespace Full_Nitro_Client
             this.dANGERResetEverythingToolStripMenuItem.Text = "Reset Everything";
             this.dANGERResetEverythingToolStripMenuItem.Click += new System.EventHandler(this.dangerResetEverythingToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.aboutToolStripMenuItem.Text = "About Full Nitro Client";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // activateBotToolStripMenuItem
-            // 
-            this.activateBotToolStripMenuItem.Name = "activateBotToolStripMenuItem";
-            this.activateBotToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.activateBotToolStripMenuItem.Text = "Activate Bot";
-            this.activateBotToolStripMenuItem.Click += new System.EventHandler(this.activateBotToolStripMenuItem_Click);
-            // 
             // openDevToolsToolStripMenuItem
             // 
             this.openDevToolsToolStripMenuItem.Name = "openDevToolsToolStripMenuItem";
             this.openDevToolsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.openDevToolsToolStripMenuItem.Text = "Open Dev Tools";
             this.openDevToolsToolStripMenuItem.Click += new System.EventHandler(this.openDevToolsToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.aboutToolStripMenuItem.Text = "About Full Nitro Client";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -201,11 +169,8 @@ namespace Full_Nitro_Client
             this.ColorScheme.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(100)))), ((int)(((byte)(158)))));
             this.ColorScheme.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.ColorScheme.SecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(75)))), ((int)(((byte)(120)))));
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.modernButton1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.tlpMain);
             this.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -213,35 +178,29 @@ namespace Full_Nitro_Client
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.tlpMain.ResumeLayout(false);
+            this.tlpMain.PerformLayout();
+            this.navbar.ResumeLayout(false);
+            this.navbar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem visualTweaksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem give1MillionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setMembershipToGoldToolStripMenuItem;
-        private RED7Studios.UI.Controls.ModernButton modernButton1;
-        private System.Windows.Forms.Timer timerScripts;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.TableLayoutPanel tlpMain;
+        private System.Windows.Forms.MenuStrip navbar;
         private System.Windows.Forms.ToolStripMenuItem visualTweaksToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem additionalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem giveYourselfMoneyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem giveYourselfGoldMembershipToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dANGERResetEverythingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activateBotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openDevToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem giveYourselfOneMillionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem giveYourselfMembershipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem secretModeToolStripMenuItem;
     }
 }
 

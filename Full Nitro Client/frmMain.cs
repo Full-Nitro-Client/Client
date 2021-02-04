@@ -22,6 +22,7 @@ namespace Full_Nitro_Client
         // Create a public ChromiumWebBrowser called 'chromeBrowser'.
         public ChromiumWebBrowser chromeBrowser;
 
+        // The string for the cache directory.
         string cacheDirBase = "Caches";
 
         public frmMain()
@@ -31,14 +32,13 @@ namespace Full_Nitro_Client
             // Initialize the browser.
             InitializeChromium();
 
-            //this.Text = chromeBrowser.Address + " - Full Nitro Client";
-
-            chromeBrowser.AddressChanged += ChromeBrowser_AddressChanged;
+            // Create a new frame load end function for scripts.
             chromeBrowser.FrameLoadEnd += ChromeBrowser_FrameLoadEnd;
         }
 
         private void ChromeBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
+            // Execute the jQuery script.
             chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\jQuery.js"));
 
             // If the Enable Gold Membership file exists.
@@ -64,12 +64,6 @@ namespace Full_Nitro_Client
             }
         }
 
-        private void ChromeBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-            // chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Membership.js"));
-            //this.Text = chromeBrowser.Address + " - Full Nitro Client";
-        }
-
         public void InitializeChromium()
         {
             // Create a new CefSettings called 'settings'.
@@ -78,25 +72,31 @@ namespace Full_Nitro_Client
             settings.CachePath = Path.GetFullPath(Application.StartupPath) + @"\Caches";
             // Initialize cef with the provided settings
             Cef.Initialize(settings);
+
             // Create a browser component
             chromeBrowser = new ChromiumWebBrowser("https://www.nitrotype.com/login")
             {
+                // Dock it to fill.
                 Dock = DockStyle.Fill
             };
 
             // Add it to the form and fill it to the form window.
-            tableLayoutPanel1.Controls.Add(chromeBrowser);
+            tlpMain.Controls.Add(chromeBrowser);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            var membership = giveYourselfGoldMembershipToolStripMenuItem;
+            // Create a new variable for the tool strip item.
+            var membership = giveYourselfMembershipToolStripMenuItem;
+            // If the enable gold membership file exists.
             if (File.Exists(cacheDirBase + "\\EnableGoldMembership.dat"))
             {
+                // Set the text to ON with the original text.
                 membership.Text = "ON " + membership.Text;
             }
             else
             {
+                // Set the text to OFF with the original text.
                 membership.Text = "OFF " + membership.Text;
             }
         }
@@ -105,17 +105,6 @@ namespace Full_Nitro_Client
         {
             // Handle a shutdown.
             HandleShutdown();
-        }
-
-        private void modernButton1_Click(object sender, EventArgs e)
-        {
-            chromeBrowser.ShowDevTools();
-        }
-
-        // Inefficent.
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
         }
 
         private void HandleRestart()
@@ -134,33 +123,6 @@ namespace Full_Nitro_Client
             ResetCaches();
             // Exit the application.
             Application.Exit();
-        }
-
-        private void giveYourselfGoldMembershipToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Create a new membership variable for the tool strip menu item.
-            var membership = giveYourselfGoldMembershipToolStripMenuItem;
-
-            if (membership.Text.Contains("OFF "))
-            {   
-                // Create the dat file to enable the membership.
-                File.Create(cacheDirBase + "\\EnableGoldMembership.dat");
-                // Handle a restart.
-                HandleRestart();
-            }
-            else if (membership.Text.Contains("ON "))
-            {
-                // Shutdown the CEF process.
-                Cef.Shutdown();
-                // Delete the dat file to disable the membership.
-                File.Delete(cacheDirBase + "\\EnableGoldMembership.dat");
-                // Reset the local storage.
-                ResetLocalStorage();
-                // Reset the caches.
-                ResetCaches();
-                // Handle a restart.
-                HandleRestart();
-            }
         }
 
         private void ResetLocalStorage()
@@ -237,18 +199,13 @@ namespace Full_Nitro_Client
 
         private void giveYourselfMoneyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Write a line to the console saying it is executing.
-            Console.WriteLine("Executing OneMillion.js Script!");
-            // Execute the give gold membership script.
-            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\OneMillion.js"));
-            // Reload the browser.
-            chromeBrowser.Reload();
+            
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Create a new AboutForm called 'about'.
-            AboutForm about = new AboutForm();
+            frmAbout about = new frmAbout();
             // Open the 'about' form as a dialog.
             about.ShowDialog();
             // Write a line to the console saying it was opened.
@@ -257,12 +214,63 @@ namespace Full_Nitro_Client
 
         private void activateBotToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Start the auto typer.
             Process.Start(cacheDirBase + "\\NitroTyper.exe");
         }
 
         private void openDevToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Show the chromium dev tools.
             chromeBrowser.ShowDevTools();
+        }
+
+        private void giveYourselfMembershipToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new membership variable for the tool strip menu item.
+            var membership = giveYourselfMembershipToolStripMenuItem;
+
+            // If the membership text contains OFF.
+            if (membership.Text.Contains("OFF "))
+            {
+                // Create the dat file to enable the membership.
+                File.Create(cacheDirBase + "\\EnableGoldMembership.dat");
+                // Handle a restart.
+                HandleRestart();
+            }
+            // Else if the membership text contains ON.2
+            else if (membership.Text.Contains("ON "))
+            {
+                // Shutdown the CEF process.
+                Cef.Shutdown();
+                // Delete the dat file to disable the membership.
+                File.Delete(cacheDirBase + "\\EnableGoldMembership.dat");
+                // Reset the local storage.
+                ResetLocalStorage();
+                // Reset the caches.
+                ResetCaches();
+                // Handle a restart.
+                HandleRestart();
+            }
+        }
+
+        private void giveYourselfOneMillionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Write a line to the console saying it is executing.
+            Console.WriteLine("Executing OneMillion.js Script!");
+            // Execute the give gold membership script.
+            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\OneMillion.js"));
+            // Reload the browser.
+            chromeBrowser.Reload();
+        }
+
+        private void secretModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Set the title bar text to "Browser [BETA]".
+            this.Text = "Browser [BETA]";
+            // Hide the navbar.
+            navbar.Visible = false;
+            // Remove the first row in the table layout panel.
+            Modules.TableLayoutHelper.RemoveArbitraryRow(tlpMain, 0); // https://stackoverflow.com/questions/15535214/removing-a-specific-row-in-tablelayoutpanel
         }
     }
 }
