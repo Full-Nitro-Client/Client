@@ -36,31 +36,36 @@ namespace Full_Nitro_Client
             chromeBrowser.FrameLoadEnd += ChromeBrowser_FrameLoadEnd;
         }
 
+        public string URL_GOTO
+        {
+            set => chromeBrowser.Load(value);
+        }
+
         private void ChromeBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            // Execute the jQuery script.
-            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\jQuery.js"));
+            RunScript("jQuery", false);
 
             // If the Enable Gold Membership file exists.
             if (File.Exists(cacheDirBase + "\\EnableGoldMembership.dat"))
             {
                 // If the URL is the garage or racing.
-                if (chromeBrowser.Address.Contains("nitrotype.com/garage")
-                 || chromeBrowser.Address.Contains("nitrotype.com/race"))
+                if (chromeBrowser.Address.Contains("nitrotype.com/garage"))
                 {
-                    // Write a line to the console saying it is executing.
-                    Console.WriteLine("Executing Membership.js Script!");
-                    // Execute the give gold membership script.
-                    chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Membership.js"));
+                    RunScript("Membership", false);
+                }
+            }
+
+            if (File.Exists(cacheDirBase + "\\GiveAllCars.dat"))
+            {
+                if (chromeBrowser.Address.Contains("nitrotype.com/garage"))
+                {
+                    RunScript("AllCars", false);
                 }
             }
 
             if (chromeBrowser.Address.Contains("nitrotype.com/race"))
             {
-                // Write a line to the console saying it is executing.
-                Console.WriteLine("Executing Bot.js Script!");
-                // Execute the give gold membership script.
-                chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\Bot.js"));
+                // RunScript("Bot");
             }
         }
 
@@ -88,6 +93,7 @@ namespace Full_Nitro_Client
         {
             // Create a new variable for the tool strip item.
             var membership = giveYourselfMembershipToolStripMenuItem;
+
             // If the enable gold membership file exists.
             if (File.Exists(cacheDirBase + "\\EnableGoldMembership.dat"))
             {
@@ -98,6 +104,23 @@ namespace Full_Nitro_Client
             {
                 // Set the text to OFF with the original text.
                 membership.Text = "OFF " + membership.Text;
+            }
+
+
+
+            // Create a new variable for the tool strip item.
+            var cars = giveYourselfAllCarsToolStripMenuItem;
+
+            // If the enable gold membership file exists.
+            if (File.Exists(cacheDirBase + "\\GiveAllCars.dat"))
+            {
+                // Set the text to ON with the original text.
+                cars.Text = "ON " + cars.Text;
+            }
+            else
+            {
+                // Set the text to OFF with the original text.
+                cars.Text = "OFF " + cars.Text;
             }
         }
 
@@ -253,14 +276,22 @@ namespace Full_Nitro_Client
             }
         }
 
-        private void giveYourselfOneMillionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RunScript(string name, bool reload)
         {
             // Write a line to the console saying it is executing.
-            Console.WriteLine("Executing OneMillion.js Script!");
-            // Execute the give gold membership script.
-            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\OneMillion.js"));
-            // Reload the browser.
-            chromeBrowser.Reload();
+            Console.WriteLine("Executing " + name + ".js Script!");
+            // Execute the script.
+            chromeBrowser.ExecuteScriptAsync(File.ReadAllText(cacheDirBase + "\\" + name +".js"));
+            if (reload == true)
+            {
+                // Reload the browser.
+                chromeBrowser.Reload();
+            }
+        }
+
+        private void giveYourselfOneMillionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunScript("OneMillion", true);
         }
 
         private void secretModeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,6 +302,43 @@ namespace Full_Nitro_Client
             navbar.Visible = false;
             // Remove the first row in the table layout panel.
             Modules.TableLayoutHelper.RemoveArbitraryRow(tlpMain, 0); // https://stackoverflow.com/questions/15535214/removing-a-specific-row-in-tablelayoutpanel
+            // Goto Google to make it look believable.
+            URL_GOTO = "https://google.com";
+        }
+
+        private void giveYourselfAllCarsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new membership variable for the tool strip menu item.
+            var cars = giveYourselfAllCarsToolStripMenuItem;
+
+            // If the membership text contains OFF.
+            if (cars.Text.Contains("OFF "))
+            {
+                // Create the dat file to enable the membership.
+                File.Create(cacheDirBase + "\\GiveAllCars.dat");
+                // Handle a restart.
+                HandleRestart();
+            }
+            // Else if the membership text contains ON.
+            else if (cars.Text.Contains("ON "))
+            {
+                // Shutdown the CEF process.
+                Cef.Shutdown();
+                // Delete the dat file to disable the membership.
+                File.Delete(cacheDirBase + "\\GiveAllCars.dat");
+                // Reset the local storage.
+                ResetLocalStorage();
+                // Reset the caches.
+                ResetCaches();
+                // Handle a restart.
+                HandleRestart();
+            }
+        }
+
+        private void gotoURLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Full_Nitro_Client.Controls.frmGotoURL uc = new Full_Nitro_Client.Controls.frmGotoURL();
+            uc.ShowDialog();
         }
     }
 }

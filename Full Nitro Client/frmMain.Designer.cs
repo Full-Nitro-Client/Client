@@ -42,6 +42,9 @@ namespace Full_Nitro_Client
             this.dANGERResetEverythingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.giveYourselfAllCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gotoURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMain.SuspendLayout();
             this.navbar.SuspendLayout();
             this.SuspendLayout();
@@ -71,9 +74,9 @@ namespace Full_Nitro_Client
             this.navbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visualTweaksToolStripMenuItem1,
             this.additionalToolStripMenuItem});
-            this.navbar.Location = new System.Drawing.Point(517, 0);
+            this.navbar.Location = new System.Drawing.Point(457, 0);
             this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(106, 24);
+            this.navbar.Size = new System.Drawing.Size(226, 24);
             this.navbar.TabIndex = 0;
             this.navbar.Text = "menuStrip2";
             // 
@@ -82,6 +85,7 @@ namespace Full_Nitro_Client
             this.visualTweaksToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripSeparator1,
+            this.otherToolStripMenuItem,
             this.toolStripSeparator2,
             this.secretModeToolStripMenuItem});
             this.visualTweaksToolStripMenuItem1.Name = "visualTweaksToolStripMenuItem1";
@@ -92,7 +96,8 @@ namespace Full_Nitro_Client
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.giveYourselfOneMillionToolStripMenuItem,
-            this.giveYourselfMembershipToolStripMenuItem});
+            this.giveYourselfMembershipToolStripMenuItem,
+            this.giveYourselfAllCarsToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Visual Tweaks";
@@ -159,6 +164,28 @@ namespace Full_Nitro_Client
             this.aboutToolStripMenuItem.Text = "About Full Nitro Client";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // giveYourselfAllCarsToolStripMenuItem
+            // 
+            this.giveYourselfAllCarsToolStripMenuItem.Name = "giveYourselfAllCarsToolStripMenuItem";
+            this.giveYourselfAllCarsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.giveYourselfAllCarsToolStripMenuItem.Text = "Give Yourself All Cars";
+            this.giveYourselfAllCarsToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfAllCarsToolStripMenuItem_Click);
+            // 
+            // otherToolStripMenuItem
+            // 
+            this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gotoURLToolStripMenuItem});
+            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+            this.otherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otherToolStripMenuItem.Text = "Other";
+            // 
+            // gotoURLToolStripMenuItem
+            // 
+            this.gotoURLToolStripMenuItem.Name = "gotoURLToolStripMenuItem";
+            this.gotoURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gotoURLToolStripMenuItem.Text = "Goto URL";
+            this.gotoURLToolStripMenuItem.Click += new System.EventHandler(this.gotoURLToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -201,6 +228,9 @@ namespace Full_Nitro_Client
         private System.Windows.Forms.ToolStripMenuItem giveYourselfMembershipToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem secretModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem giveYourselfAllCarsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gotoURLToolStripMenuItem;
     }
 }
 

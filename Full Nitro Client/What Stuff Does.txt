@@ -1,6 +1,6 @@
 ﻿Scripts:
 Scripts are well scripts they can be ran at start up like the fake give membership or at that time like the Give One million script.
-	Give Yourself One Million:
+	Give Yourself One Million:2
 	This script is well to give yourself one million dollars although you can not spend it.
 
 	Give Yourself Membership:
