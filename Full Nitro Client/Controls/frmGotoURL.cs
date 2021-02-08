@@ -17,11 +17,6 @@ namespace Full_Nitro_Client.Controls
             InitializeComponent();
         }
 
-        public string URL_GOTO
-        {
-            get { return tbURL.Text; }
-        }
-
         private void frmGotoURL_Load(object sender, EventArgs e)
         {
 
@@ -29,9 +24,7 @@ namespace Full_Nitro_Client.Controls
 
         private void btnGotoURL_Click(object sender, EventArgs e)
         {
-            var content = this.tbURL.Text;
-            var parent = this.Parent as frmMain;
-            parent.URL_GOTO = tbURL.Text;
+            Program.Form.BROWSER_URL = tbURL.Text;
         }
     }
 }

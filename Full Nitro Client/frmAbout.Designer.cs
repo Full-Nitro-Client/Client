@@ -78,7 +78,7 @@ namespace Full_Nitro_Client
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(57, 19);
             this.lbVer.TabIndex = 3;
-            this.lbVer.Text = "v1.0.0.1";
+            this.lbVer.Text = "v1.0.0.2";
             // 
             // lbDescription
             // 

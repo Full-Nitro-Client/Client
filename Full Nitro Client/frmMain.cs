@@ -20,7 +20,7 @@ namespace Full_Nitro_Client
     public partial class frmMain : ModernForm
     {
         // Create a public ChromiumWebBrowser called 'chromeBrowser'.
-        public ChromiumWebBrowser chromeBrowser;
+        // public ChromiumWebBrowser chromeBrowser;
 
         // The string for the cache directory.
         string cacheDirBase = "Caches";
@@ -36,7 +36,7 @@ namespace Full_Nitro_Client
             chromeBrowser.FrameLoadEnd += ChromeBrowser_FrameLoadEnd;
         }
 
-        public string URL_GOTO
+        public string BROWSER_URL
         {
             set => chromeBrowser.Load(value);
         }
@@ -78,7 +78,9 @@ namespace Full_Nitro_Client
             // Initialize cef with the provided settings
             Cef.Initialize(settings);
 
-            // Create a browser component
+            chromeBrowser.Load("https://www.nitrotype.com/login");
+
+            /* Create a browser component
             chromeBrowser = new ChromiumWebBrowser("https://www.nitrotype.com/login")
             {
                 // Dock it to fill.
@@ -86,7 +88,7 @@ namespace Full_Nitro_Client
             };
 
             // Add it to the form and fill it to the form window.
-            tlpMain.Controls.Add(chromeBrowser);
+            tlpMain.Controls.Add(chromeBrowser); */
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -303,7 +305,7 @@ namespace Full_Nitro_Client
             // Remove the first row in the table layout panel.
             Modules.TableLayoutHelper.RemoveArbitraryRow(tlpMain, 0); // https://stackoverflow.com/questions/15535214/removing-a-specific-row-in-tablelayoutpanel
             // Goto Google to make it look believable.
-            URL_GOTO = "https://google.com";
+            BROWSER_URL = "https://google.com";
         }
 
         private void giveYourselfAllCarsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -339,6 +341,26 @@ namespace Full_Nitro_Client
         {
             Full_Nitro_Client.Controls.frmGotoURL uc = new Full_Nitro_Client.Controls.frmGotoURL();
             uc.ShowDialog();
+        }
+
+        private void tlpMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chromeBrowser.Refresh();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            chromeBrowser.Forward();
+        }
+
+        private void goBackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chromeBrowser.Back();
         }
     }
 }

@@ -13,6 +13,9 @@ namespace Full_Nitro_Client
         // Create a new ProgramSettings called 'settings'.
         static ProgramSettings settings = new ProgramSettings();
 
+        // Create a new frmMain called 'Form'.
+        public static frmMain Form;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -38,13 +41,15 @@ namespace Full_Nitro_Client
                 frmNotice notice = new frmNotice();
                 // Open 'notice'.
                 notice.Show();
+                // Run the program.
+                Application.Run();
             }
             else
             {
-                // Set 'main' to frmMain.
-                frmMain main = new frmMain();
-                // Open 'main'.
-                main.Show();
+                // Set from to a new frmMain.
+                Form = new frmMain();
+                // Run the program.
+                Application.Run(Form);
             }
 
             // Start the updater with the NEW url.
@@ -52,9 +57,6 @@ namespace Full_Nitro_Client
 
             // Write a line to the console with the settings.
             Console.WriteLine("\n\nSettings:\nVersion: " + settings.Version + "\nBeta: " + settings.Beta + "\n\nUpdate URL: " + settings.UpdateURL + "\nUpdate Structure: " + settings.UpdateURL + settings.UpdateURLStruct + "\nUpdate XML: " + settings.UpdateURL + settings.UpdateURLXML + "\n\n");
-
-            // Run the program.
-            Application.Run();
         }
     }
 }

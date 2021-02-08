@@ -42,22 +42,26 @@ namespace Full_Nitro_Client
             this.dANGERResetEverythingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDevToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.giveYourselfAllCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chromeBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.gotoURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.giveYourselfAllCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goBackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tlpMain.SuspendLayout();
             this.navbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
             // 
-            this.tlpMain.AutoSize = true;
-            this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpMain.ColumnCount = 1;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.Controls.Add(this.navbar, 0, 0);
+            this.tlpMain.Controls.Add(this.chromeBrowser, 0, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMain.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tlpMain.Location = new System.Drawing.Point(1, 33);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 2;
@@ -65,6 +69,7 @@ namespace Full_Nitro_Client
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.Size = new System.Drawing.Size(1140, 504);
             this.tlpMain.TabIndex = 2;
+            this.tlpMain.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpMain_Paint);
             // 
             // navbar
             // 
@@ -74,9 +79,9 @@ namespace Full_Nitro_Client
             this.navbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visualTweaksToolStripMenuItem1,
             this.additionalToolStripMenuItem});
-            this.navbar.Location = new System.Drawing.Point(457, 0);
+            this.navbar.Location = new System.Drawing.Point(517, 0);
             this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(226, 24);
+            this.navbar.Size = new System.Drawing.Size(106, 24);
             this.navbar.TabIndex = 0;
             this.navbar.Text = "menuStrip2";
             // 
@@ -164,20 +169,14 @@ namespace Full_Nitro_Client
             this.aboutToolStripMenuItem.Text = "About Full Nitro Client";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // giveYourselfAllCarsToolStripMenuItem
+            // chromeBrowser
             // 
-            this.giveYourselfAllCarsToolStripMenuItem.Name = "giveYourselfAllCarsToolStripMenuItem";
-            this.giveYourselfAllCarsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.giveYourselfAllCarsToolStripMenuItem.Text = "Give Yourself All Cars";
-            this.giveYourselfAllCarsToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfAllCarsToolStripMenuItem_Click);
-            // 
-            // otherToolStripMenuItem
-            // 
-            this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gotoURLToolStripMenuItem});
-            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-            this.otherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.otherToolStripMenuItem.Text = "Other";
+            this.chromeBrowser.ActivateBrowserOnCreation = false;
+            this.chromeBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chromeBrowser.Location = new System.Drawing.Point(3, 27);
+            this.chromeBrowser.Name = "chromeBrowser";
+            this.chromeBrowser.Size = new System.Drawing.Size(1134, 474);
+            this.chromeBrowser.TabIndex = 1;
             // 
             // gotoURLToolStripMenuItem
             // 
@@ -185,6 +184,57 @@ namespace Full_Nitro_Client
             this.gotoURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gotoURLToolStripMenuItem.Text = "Goto URL";
             this.gotoURLToolStripMenuItem.Click += new System.EventHandler(this.gotoURLToolStripMenuItem_Click);
+            // 
+            // otherToolStripMenuItem
+            // 
+            this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gotoURLToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem3,
+            this.goBackToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.refreshToolStripMenuItem});
+            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+            this.otherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otherToolStripMenuItem.Text = "Other";
+            // 
+            // giveYourselfAllCarsToolStripMenuItem
+            // 
+            this.giveYourselfAllCarsToolStripMenuItem.Name = "giveYourselfAllCarsToolStripMenuItem";
+            this.giveYourselfAllCarsToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.giveYourselfAllCarsToolStripMenuItem.Text = "Give Yourself All Cars";
+            this.giveYourselfAllCarsToolStripMenuItem.Click += new System.EventHandler(this.giveYourselfAllCarsToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // goBackToolStripMenuItem
+            // 
+            this.goBackToolStripMenuItem.Name = "goBackToolStripMenuItem";
+            this.goBackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.goBackToolStripMenuItem.Text = "Go Back";
+            this.goBackToolStripMenuItem.Click += new System.EventHandler(this.goBackToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Go Forward";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // frmMain
             // 
@@ -210,7 +260,6 @@ namespace Full_Nitro_Client
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -228,9 +277,15 @@ namespace Full_Nitro_Client
         private System.Windows.Forms.ToolStripMenuItem giveYourselfMembershipToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem secretModeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem giveYourselfAllCarsToolStripMenuItem;
+        private CefSharp.WinForms.ChromiumWebBrowser chromeBrowser;
         private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gotoURLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem giveYourselfAllCarsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem goBackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
