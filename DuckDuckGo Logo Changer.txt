@@ -1,0 +1,56 @@
+// ==UserScript==
+// @name         DuckDuckGo Logo Changer
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Changes the DuckDuckGo logos on the homepage and search.
+// @author       Mitchell (Creaous)
+// @match        *://duckduckgo.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // The DuckDuckGo Homepage Logo URL
+    var duckduckgo_homepage_logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F-Cv68B-F5B0%2Fmaxresdefault.jpg&f=1&nofb=1";
+    // The DuckDuckGo Search Logo URL
+    var duckduckgo_search_logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F-Cv68B-F5B0%2Fmaxresdefault.jpg&f=1&nofb=1";
+
+    // DuckDuckGo Logo Elements
+    var ddghomepagelogo = document.getElementById("logo_homepage_link");
+    var ddgsearchlogo = document.getElementsByClassName("header__logo");
+
+    if(typeof(ddghomepagelogo) != 'undefined' && ddghomepagelogo != null){
+        console.log("Changing homepage logo for DuckDuckGo!");
+        ddghomepagelogo.style.backgroundImage = "url('" + duckduckgo_homepage_logo + "')";
+    }
+    if(typeof(ddgsearchlogo) != 'undefined' && ddgsearchlogo != null){
+        console.log("Changing search logo for DuckDuckGo!");
+        ddgsearchlogo[0].style.backgroundImage = "url('" + duckduckgo_search_logo + "')";
+    }
+
+    /*
+    // The Google Homepage Logo URL
+    var google_homepage_logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F-Cv68B-F5B0%2Fmaxresdefault.jpg&f=1&nofb=1";
+    // The Google Homepage Logo Class
+    var google_homepage_logo_class = "lnXdpd";
+
+    // The Google Search Logo URL
+    var google_search_logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F-Cv68B-F5B0%2Fmaxresdefault.jpg&f=1&nofb=1";
+    // The Google Search Logo Class
+    var google_search_logo_class = "lnXdpd"; */
+
+    /*
+    // Google Logo Elements
+    var googlehomepagelogo = document.getElemenstByClassName(google_homepage_logo_class);
+    var googlesearchlogo = document.getElementsByClassName(google_search_logo_class); */
+
+    /*if(typeof(googlehomepagelogo) != 'undefined' && googlehomepagelogo != null){
+        console.log("Changing homepage logo for Google!");
+        ddghomepagelogo.src = "url('" + google_homepage_logo + "')";
+    }
+    if(typeof(googlesearchlogo) != 'undefined' && googlesearchlogo != null){
+        console.log("Changing search logo for Google!");
+        ddgsearchlogo[0].style.backgroundImage = "url('" + google_search_logo + "')";
+    } */
+})();
